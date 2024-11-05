@@ -1,4 +1,4 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.ui.screens
 
 
 import androidx.compose.foundation.Image
@@ -49,6 +49,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
+import com.unlam.edu.ar.Character
+import com.unlam.edu.ar.MarvelApiClient
+import com.unlam.edu.ar.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.CharactersService
 import com.unlam.edu.ar.data.Comic
 import comicsmarvelapp.composeapp.generated.resources.Res
 import comicsmarvelapp.composeapp.generated.resources.chevron

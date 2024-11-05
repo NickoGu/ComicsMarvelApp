@@ -1,4 +1,4 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.ui.screens
 
 
 import androidx.compose.foundation.background
@@ -40,6 +40,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
+import com.unlam.edu.ar.Character
+import com.unlam.edu.ar.MarvelApiClient
+import com.unlam.edu.ar.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.CharactersService
 import com.unlam.edu.ar.data.Comic
 import comicsmarvelapp.composeapp.generated.resources.Res
 import comicsmarvelapp.composeapp.generated.resources.no_superhero

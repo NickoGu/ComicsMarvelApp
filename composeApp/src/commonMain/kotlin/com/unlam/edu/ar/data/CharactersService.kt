@@ -1,9 +1,12 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.data
 
 import GetTimeStamp
-import com.unlam.edu.ar.data.Comic
+import Md5
+import com.unlam.edu.ar.Character
+import com.unlam.edu.ar.IMarvelRepository
+import com.unlam.edu.ar.PRIVATE_KEY
+import com.unlam.edu.ar.PUBLIC_KEY
 import io.ktor.utils.io.core.toByteArray
-import java.security.MessageDigest
 
 
 class CharactersService(private val repository: IMarvelRepository) {
@@ -13,7 +16,7 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         val characters = repository.getCharacters(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             )
         return sort(characters)
@@ -23,7 +26,7 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         val comics = repository.getComics(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             )
         return comics
@@ -33,7 +36,7 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         return repository.getCharacterById(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             characterId
         )
@@ -43,7 +46,7 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         return repository.getComicById(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             comicId
         )
@@ -53,7 +56,7 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         return repository.getCharacterFromComic(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             comicId
         )
@@ -63,32 +66,32 @@ class CharactersService(private val repository: IMarvelRepository) {
         val timestamp = GetTimeStamp().getTimeStamp()
         return repository.getComicsFromCharacter(
             timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
+            Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
             characterId
         )
     }
 
-    private fun md5(string: String): String {
-        val MD5 = "MD5"
-        try {
-            // Create MD5 Hash
-            val digest = MessageDigest.getInstance(MD5)
-            digest.update(string.toByteArray())
-            val messageDigest = digest.digest()
-
-            // Create Hex String
-            val hexString = StringBuilder()
-            for (aMessageDigest in messageDigest) {
-                var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
-                while (h.length < 2) h = "0$h"
-                hexString.append(h)
-            }
-            return hexString.toString()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return ""
-    }
+//    private fun md5(string: String): String {
+//        val MD5 = "MD5"
+//        try {
+//            // Create MD5 Hash
+//            val digest = MessageDigest.getInstance(MD5)
+//            digest.update(string.toByteArray())
+//            val messageDigest = digest.digest()
+//
+//            // Create Hex String
+//            val hexString = StringBuilder()
+//            for (aMessageDigest in messageDigest) {
+//                var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
+//                while (h.length < 2) h = "0$h"
+//                hexString.append(h)
+//            }
+//            return hexString.toString()
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//        return ""
+//    }
 
     private fun sort(characters: List<Character>): List<Character> {
         return characters.sortedWith(CharacterComparator())

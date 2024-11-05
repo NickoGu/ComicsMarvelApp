@@ -12,6 +12,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.unlam.edu.ar.ui.screens.ComicDetailsScreen
+import com.unlam.edu.ar.ui.screens.HomeScreen
+import com.unlam.edu.ar.ui.screens.SuperheroDetailsScreen
+
 //import com.unlam.edu.ar.ui.screens.ComicDetailsScreen
 
 //import com.unlam.edu.ar.ui.screens.SuperheroDetailsScreen

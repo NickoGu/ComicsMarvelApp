@@ -98,6 +98,16 @@ android {
 
 
 }
+
+sqldelight {
+    databases {
+        create("MarvelDatabase") {
+            packageName.set("com.unlam.edu.ar")
+        }
+    }
+}
+
+
 dependencies {
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.navigation.runtime.ktx)

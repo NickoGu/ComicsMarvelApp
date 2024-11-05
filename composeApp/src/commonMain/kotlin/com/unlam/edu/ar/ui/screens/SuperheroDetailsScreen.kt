@@ -1,4 +1,4 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.ui.screens
 
 
 
@@ -35,6 +35,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
+import com.unlam.edu.ar.Character
+import com.unlam.edu.ar.MarvelApiClient
+import com.unlam.edu.ar.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.CharactersService
 import com.unlam.edu.ar.data.Comic
 import kotlinx.coroutines.launch
 
@@ -64,7 +68,7 @@ fun SuperheroDetailsScreen(paddingValue: PaddingValues, controller: NavControlle
             ) {
                 item {
                     AsyncImage(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().height(450.dp),
                         contentScale = ContentScale.Crop,
                         model = superhero?.thumbnailUrl ?: "",
                         contentDescription = superhero?.name ?: "",
@@ -73,8 +77,13 @@ fun SuperheroDetailsScreen(paddingValue: PaddingValues, controller: NavControlle
                     Text(text = superhero?.name ?: "Loading...", style = TextStyle(fontSize = 20.sp))
                     Spacer(modifier = Modifier.padding(4.dp))
                     Text(
-                        text = superhero?.description ?: "No description",
-                        style = TextStyle(fontSize = 16.sp)
+                        text = if(superhero?.description == null || superhero?.description == ""){
+                            "No description"
+                        }  else {
+                            superhero?.description!!
+                        },
+                        style = TextStyle(fontSize = 16.sp),
+                        modifier = Modifier.padding(horizontal = 16.dp)
                     )
                     Column (
                         modifier = Modifier.padding(16.dp).fillMaxWidth(),
