@@ -49,11 +49,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
-import com.unlam.edu.ar.Character
-import com.unlam.edu.ar.MarvelApiClient
-import com.unlam.edu.ar.MarvelRepositoryImpl
-import com.unlam.edu.ar.data.CharactersService
-import com.unlam.edu.ar.data.Comic
+import com.unlam.edu.ar.data.local.CharactersDatabase
+import com.unlam.edu.ar.data.models.Character
+import com.unlam.edu.ar.data.network.MarvelApiClient
+import com.unlam.edu.ar.data.repository.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.network.CharactersService
+import com.unlam.edu.ar.data.models.Comic
 import comicsmarvelapp.composeapp.generated.resources.Res
 import comicsmarvelapp.composeapp.generated.resources.chevron
 import comicsmarvelapp.composeapp.generated.resources.doom_banner
@@ -67,7 +68,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 //https://dribbble.com/shots/6491257-Comic-book-Reading-App/attachments/6491257-Comic-book-Reading-App?mode=media
 
 @Composable
-fun HomeScreen(paddingValue: PaddingValues, controller: NavController) {
+fun HomeScreen(paddingValue: PaddingValues, controller: NavController, characterDatabase : CharactersDatabase) {
 
     var superhero by remember { mutableStateOf<List<Character?>>(emptyList()) }
     var comics by remember { mutableStateOf<List<Comic?>>(emptyList()) }
@@ -226,12 +227,4 @@ fun HomeScreen(paddingValue: PaddingValues, controller: NavController) {
 
 
     )
-}
-
-
-@Preview
-@Composable
-fun HomeScreenPreview() {
-    val controller = rememberNavController()
-    HomeScreen(paddingValue = PaddingValues(0.dp), controller = controller)
 }

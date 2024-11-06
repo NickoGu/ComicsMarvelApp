@@ -1,11 +1,11 @@
-package com.unlam.edu.ar.data
+package com.unlam.edu.ar.data.models
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Comic(
+data class Character(
     val id: Long,
-    val title: String,
+    val name: String,
     val description: String,
     val thumbnailUrl: String
 )

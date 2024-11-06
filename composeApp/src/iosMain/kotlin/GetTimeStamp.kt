@@ -1,6 +1,6 @@
 
 actual class GetTimeStamp {
     actual fun getTimeStamp(): Long {
-        return 1000
+       // return (NSDate().timeIntervalSince1970 * 1000).toLong()
     }
 }

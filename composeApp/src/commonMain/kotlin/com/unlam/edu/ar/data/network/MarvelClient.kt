@@ -1,4 +1,4 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.data.network
 
 
 import kotlinx.serialization.SerialName

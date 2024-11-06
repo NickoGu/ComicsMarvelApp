@@ -1,12 +1,12 @@
-package com.unlam.edu.ar.data
+package com.unlam.edu.ar.data.network
 
 import GetTimeStamp
 import Md5
-import com.unlam.edu.ar.Character
-import com.unlam.edu.ar.IMarvelRepository
+import com.unlam.edu.ar.data.models.Character
+import com.unlam.edu.ar.data.repository.IMarvelRepository
 import com.unlam.edu.ar.PRIVATE_KEY
 import com.unlam.edu.ar.PUBLIC_KEY
-import io.ktor.utils.io.core.toByteArray
+import com.unlam.edu.ar.data.models.Comic
 
 
 class CharactersService(private val repository: IMarvelRepository) {

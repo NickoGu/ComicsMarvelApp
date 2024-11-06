@@ -1,6 +1,7 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.data.repository
 
-import com.unlam.edu.ar.data.Comic
+import com.unlam.edu.ar.data.models.Comic
+import com.unlam.edu.ar.data.models.Character
 
 
 interface IMarvelRepository {

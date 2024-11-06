@@ -35,11 +35,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
-import com.unlam.edu.ar.Character
-import com.unlam.edu.ar.MarvelApiClient
-import com.unlam.edu.ar.MarvelRepositoryImpl
-import com.unlam.edu.ar.data.CharactersService
-import com.unlam.edu.ar.data.Comic
+import com.unlam.edu.ar.data.models.Character
+import com.unlam.edu.ar.data.network.MarvelApiClient
+import com.unlam.edu.ar.data.repository.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.network.CharactersService
+import com.unlam.edu.ar.data.models.Comic
 import kotlinx.coroutines.launch
 
 

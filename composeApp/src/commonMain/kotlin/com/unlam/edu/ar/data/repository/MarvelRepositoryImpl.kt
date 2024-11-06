@@ -1,6 +1,8 @@
-package com.unlam.edu.ar
+package com.unlam.edu.ar.data.repository
 
-import com.unlam.edu.ar.data.Comic
+import com.unlam.edu.ar.data.network.MarvelCharactersClient
+import com.unlam.edu.ar.data.models.Comic
+import com.unlam.edu.ar.data.models.Character
 
 class MarvelRepositoryImpl(private val client: MarvelCharactersClient) :
     IMarvelRepository {

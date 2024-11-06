@@ -40,11 +40,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
-import com.unlam.edu.ar.Character
-import com.unlam.edu.ar.MarvelApiClient
-import com.unlam.edu.ar.MarvelRepositoryImpl
-import com.unlam.edu.ar.data.CharactersService
-import com.unlam.edu.ar.data.Comic
+import com.unlam.edu.ar.data.models.Character
+import com.unlam.edu.ar.data.network.MarvelApiClient
+import com.unlam.edu.ar.data.repository.MarvelRepositoryImpl
+import com.unlam.edu.ar.data.network.CharactersService
+import com.unlam.edu.ar.data.models.Comic
 import comicsmarvelapp.composeapp.generated.resources.Res
 import comicsmarvelapp.composeapp.generated.resources.no_superhero
 import kotlinx.coroutines.launch
@@ -55,7 +55,7 @@ fun ComicDetailsScreen(paddingValue: PaddingValues, controller: NavController, c
     var comic by remember { mutableStateOf<Comic?>(null) }
     var characters by remember { mutableStateOf<List<Character>>(emptyList()) }
     val scope = rememberCoroutineScope()
-    val random = (0..10).random()
+    //val random = (0..10).random()
 
     LaunchedEffect(key1 = Unit) {
         scope.launch {
@@ -89,8 +89,8 @@ fun ComicDetailsScreen(paddingValue: PaddingValues, controller: NavController, c
                             verticalArrangement = Arrangement.Top
                         ){
                             Text(comic?.title ?: "No title", style = TextStyle(fontSize = 20.sp), maxLines = 3, overflow = TextOverflow.Ellipsis)
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Text("Rating: ${random}/10", style = TextStyle(fontSize = 16.sp))
+                            //Spacer(modifier = Modifier.height(16.dp))
+                            //Text("Rating: ${random}/10", style = TextStyle(fontSize = 16.sp))
 
                         }
                     }
