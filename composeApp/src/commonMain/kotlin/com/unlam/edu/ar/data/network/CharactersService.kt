@@ -6,12 +6,13 @@ import com.unlam.edu.ar.data.models.Character
 import com.unlam.edu.ar.data.repository.IMarvelRepository
 import com.unlam.edu.ar.PRIVATE_KEY
 import com.unlam.edu.ar.PUBLIC_KEY
+import com.unlam.edu.ar.data.local.CharactersDatabase
 import com.unlam.edu.ar.data.models.Comic
 
 
 class CharactersService(private val repository: IMarvelRepository) {
 
-    suspend fun getCharacters(): List<Character> {
+    suspend fun getCharacters(characterDatabase : CharactersDatabase): List<Character> {
         //TODO: EXPECT ACTUAL
         val timestamp = GetTimeStamp().getTimeStamp()
         val characters = repository.getCharacters(
@@ -19,6 +20,7 @@ class CharactersService(private val repository: IMarvelRepository) {
             Md5().md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY),
 
             )
+        characterDatabase.insertCharacters(characters)
         return sort(characters)
     }
 

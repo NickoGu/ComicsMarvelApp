@@ -64,6 +64,7 @@ import comicsmarvelapp.composeapp.generated.resources.no_superhero
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.math.log
 
 //https://dribbble.com/shots/6491257-Comic-book-Reading-App/attachments/6491257-Comic-book-Reading-App?mode=media
 
@@ -79,7 +80,16 @@ fun HomeScreen(paddingValue: PaddingValues, controller: NavController, character
             val client = MarvelApiClient()
             val repository = MarvelRepositoryImpl(client)
             val service = CharactersService(repository)
-            superhero = service.getCharacters()
+            service.getCharacters(characterDatabase)
+            val databaseCharacters = characterDatabase.getAllCharacters()
+            if (databaseCharacters.isNotEmpty()) {
+                print("Funciona la base de datos")
+                superhero = databaseCharacters
+            } else {
+                superhero = service.getCharacters(characterDatabase)
+                print("No funciona la base de datos")
+
+            }
             comics = service.getComics()
         }
     }
