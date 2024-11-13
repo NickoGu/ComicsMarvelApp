@@ -1,0 +1,46 @@
+CREATE TABLE MarvelCharacters (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    thumbnail TEXT NOT NULL
+);
+
+insertMarvelCharacter:
+INSERT OR IGNORE INTO MarvelCharacters(id, name, description, thumbnail)
+VALUES (?, ?, ?, ?);
+
+deleteAllMarvelCharacters:
+DELETE FROM MarvelCharacters;
+
+deleteMarvelCharacter:
+DELETE FROM MarvelCharacters WHERE id = ?;
+
+getAllMarvelCharacters:
+SELECT * FROM MarvelCharacters;
+
+getMarvelCharacter:
+SELECT * FROM MarvelCharacters WHERE id = ?;
+
+CREATE TABLE MarvelComics (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    thumbnail TEXT NOT NULL
+);
+
+insertMarvelComic:
+INSERT OR IGNORE INTO MarvelComics(id, title, description, thumbnail)
+VALUES (?, ?, ?, ?);
+
+deleteAllMarvelComics:
+DELETE FROM MarvelComics;
+
+deleteMarvelComic:
+DELETE FROM MarvelComics WHERE id = ?;
+
+getAllMarvelComics:
+SELECT * FROM MarvelComics;
+
+getMarvelComic:
+SELECT * FROM MarvelComics WHERE id = ?;
+
